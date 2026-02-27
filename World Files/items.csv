@@ -1,0 +1,11 @@
+id,name,item_type,item_action,currency,max_stack,dmg_die,consumable,special
+1,"Long Stick",weapon,hit,1,1,1d2,0,NULL
+2,"Rusty Axe",weapon,hit,5,1,1d6,0,NULL
+3,"Large Pebble",weapon,throw,1,10,1d4,1,NULL
+4,"Thowing Knife",weapon,throw,4,10,1d6,1,NULL
+5,"Lesser Healing Potion",potion,drink,15,5,2d4,1,NULL
+6,"Leather Vest",chest_armor,wear,25,1,ac12,0,NULL
+7,"Leather Helmet",head_armor,wear,15,1,ac+1,0,NULL
+8,"Leather Greaves",leg_armor,wear,20,1,ac+1,0,NULL
+9,"Leather Boots",foot_armor,wear,15,1,ac+1,0,NULL
+10,"Leather Gloves",hand_armor,wear,10,1,ac+1,0,NULL
