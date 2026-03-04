@@ -21,6 +21,7 @@ class World:
         return cls._instance
 
     def __init__(self):
+        print("init world")
         self.connection = sqlite3.connect(base_dir + '/aether.db')
         self.connection.row_factory = sqlite3.Row
         self.cursor = self.connection.cursor()
@@ -40,7 +41,7 @@ class World:
         with open(filepath, mode='r', encoding='utf-8') as f:
             reader = csv.DictReader(f)
             # Skip the header row (index, location_name, etc.)
-            next(reader)
+            # next(reader)
 
             for row in reader:
                 # print("row", row)
@@ -100,8 +101,7 @@ class World:
 
     def db_select(self, element, table, room):
         query = f"SELECT {element} FROM {table} WHERE id = ?"
-        self.cursor.execute(query, (room,))
-        val = self.cursor.fetchone()
+        val = self.cursor.execute(query, (room,)).fetchone()
         return val[0]
     
     def build_map(self, imported_map):
