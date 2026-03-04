@@ -15,7 +15,7 @@ class GeneralActions:
         print(world.loc_exits())
         if hasattr(world.loc_exits(), action):
             # If exit exists, move the hero to that location
-            hero.current_location = getattr(utils.get_exits(world), action)
+            hero.current_location = getattr(utils.get_current_room_attr('exits', world), action)
             utils.next_prompt(world.loc_name())
             utils.next_prompt(world.loc_desc())
             if not hero.current_location in hero.visited:
@@ -28,7 +28,7 @@ class GeneralActions:
             case "map":
                 world.reveal_map()
             case "exits":
-                exits = utils.get_exits(world)
+                exits = utils.get_current_room_attr('exits', world)
                 print(list(vars(exits).keys()))
             case "items":
                 print(world.loc_items())

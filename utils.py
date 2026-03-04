@@ -26,12 +26,22 @@ def load_map_file(filename):
             file_data.append(row)
     return file_data
 
-def get_exits(world):
-    exits = str_to_obj(world.db_select('exits', 'world', hero.current_location))
-    return exits
-
 def str_to_obj(string):
     pairs = string.split(',')
     data = {k: int(v) for k, v in (pair.split(':') for pair in pairs)}
 
     return SimpleNamespace(**data)
+
+def get_current_room_attr(world, element):
+    world_attr = world.db_select(element, 'world', hero.current_location)
+    try:
+        return str_to_obj(world_attr)
+    except:
+        return exits
+
+def get_item_attr(world, element, item):
+    item_attr = world.db_select(element, 'world_items', item)
+    try:
+        return str_to_obj(item_attr)
+    except:
+        return item_attr
