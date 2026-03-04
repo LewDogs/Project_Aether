@@ -9,14 +9,18 @@ import utils
 if __name__ == "__main__":
     # Initialise Player Object
     hero = Player()
-    hero.init_player(False)
-    
-    # Initialise Actions Object
-    actions = GeneralActions()
 
     # Initialise World Object
     the_world = World()
     the_world.build_map(utils.load_map_file('map.csv'))
+    
+    # Initialise Actions Object
+    actions = GeneralActions()
+
+    # Start building your character
+    hero.init_player(False)
+
+    # Start the game. Play the intro sequence
     the_world.begin()
 
     # Begin the game loop
