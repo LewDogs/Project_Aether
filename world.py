@@ -21,7 +21,6 @@ class World:
         return cls._instance
 
     def __init__(self):
-        print("init world")
         self.connection = sqlite3.connect(base_dir + '/aether.db')
         self.connection.row_factory = sqlite3.Row
         self.cursor = self.connection.cursor()
