@@ -31,7 +31,11 @@ class GeneralActions:
                 exits = utils.get_current_room_attr(world, 'exits')
                 print(list(vars(exits).keys()))
             case "items":
-                print(world.loc_items())
+                item_list = utils.items_str_to_obj(world.loc_items(), world)
+                string = "You see "
+                for item in item_list:
+                    string += str(item.get('num')) + ' of ' + str(item.get('name')) + ', '
+                print(string)
             case action.startswith("take"):
                 print("You want to " + action)
             case _: 

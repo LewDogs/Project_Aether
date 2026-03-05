@@ -45,3 +45,12 @@ def get_item_attr(world, element, item):
         return str_to_obj(item_attr)
     except:
         return item_attr
+
+def items_str_to_obj(string, world):
+    pairs = string.split(',')
+    data = []
+    for pair in pairs:
+        vals = pair.split('x')
+        name = get_item_attr(world, 'name', int(vals[1]))
+        data.append({'num': int(vals[0]), 'item_id': int(vals[1]), 'name': name})
+    return data
